@@ -20,7 +20,16 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyDMjiS-UKj6Dwp0IqqkpO8UrS3EIXpuljM",
+    authDomain: "no-broker-f8922.firebaseapp.com",
+    databaseURL: "https://no-broker-f8922-default-rtdb.firebaseio.com",
+    projectId: "no-broker-f8922",
+    storageBucket: "no-broker-f8922.appspot.com",
+    messagingSenderId: "1027629239527",
+    appId: "1:1027629239527:web:b2338013fe6915522aa642",
+    measurementId: "G-9W6JB23GKY"
+    }),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     HttpClientModule,
