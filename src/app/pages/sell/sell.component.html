@@ -1,0 +1,286 @@
+
+<section>
+  <div class="container-fluid">
+
+    <div class="row mt-4 mb-5">
+      
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-lg-12 col-md-12" style="margin-bottom: 15px;">
+            <div class="card">
+              <div class="card-body">
+                <div class="row text-left">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Apartment Name</label>
+                      <input class="form-control" [(ngModel)]="deatils.Apartment" placeholder="Apartment Name"/>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Select Area:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Area">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of areaNames" value="{{item}}">{{item}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row text-left">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Buildup Area (Sq.Ft)</label>
+                      <input class="form-control" [(ngModel)]="deatils.Builtup_SqFit" placeholder="Buildup area in Sq.Ft"/>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Price (Lac)</label>
+                      <input class="form-control" [(ngModel)]="deatils.Price_in_Lacs" placeholder="Price in lac"/>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Select House Type:</label>
+                      <select class="form-control" [(ngModel)]="deatils.House_Type">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of houseType" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Select Parking:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Parking">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of parking" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row text-left">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Carpet Area (Sq.Ft)</label>
+                      <input class="form-control" [(ngModel)]="deatils.Carpet_SqFit" placeholder="Buildup area in Sq.Ft"/>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Maintenance (Per Sq.Ft/M)</label>
+                      <input class="form-control" [(ngModel)]="deatils.Maintenance" placeholder="Per Sq.Ft/M"/>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Age of Building:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Age_of_Building">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of ages" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Bedroom:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Bedroom">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of bedroom" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row text-left">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Furnishing Status:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Furnishing_Status">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of furnishing" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Bathroom:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Bathroom">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of bathroom" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Balcony:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Balcony">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of balcony" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Power Backup:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Power_Backup">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of power" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <div class="row text-left">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Facing:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Facing">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of facing" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Floor:</label>
+                      <input class="form-control" [(ngModel)]="deatils.Floor" placeholder="Floor"/>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Gated Security:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Gated_Security">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of gated" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Lift:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Lift">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of lift" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row text-left">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Gym:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Gym">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of gym" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Shopping Center:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Shopping_Center">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of shopping" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Gas Pipeline:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Gas_Pipeline">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of gas" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Sewage Treatment Plant:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Sewage_Treatment_Plant">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of sewage" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row text-left">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Fire Safety:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Fire_Safety">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of fire" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Club house:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Club_house">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of club" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Swimming Pool:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Swimming_Pool">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of swimming" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Children Play Area:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Children_Play_Area">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of children" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row text-left">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleDropdownFormEmail1">Visitor Parking:</label>
+                      <select class="form-control" [(ngModel)]="deatils.Visitor_Parking">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of visitor" value="{{item.value}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row text-left">
+                  <div class="col-md-12">
+                    <!-- (click)="sell()" -->
+                    <button class="btn btn-primary" (click)="save(deatils)" style="float: right;margin-left: 10px;"> Submit</button>
+                    <button class="btn btn-danger" (click)="cancel()" style="float: right;"> Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top"
+            src="https://www.riddhibuilders.in/images/flat/flats-for-sale-in-narsing-hyderabad.jpg"
+            alt="Card image cap">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
