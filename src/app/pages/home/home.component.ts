@@ -23,7 +23,8 @@ export class HomeComponent implements OnInit {
   facing = '';
   gated = '';
   filterArray = [];
-  pageNumber = 1;
+  pageNumber = 0;
+  nextDisable = false;
   constructor(private commonService: CommonService, private router: Router) {
     this.commonService.getDocuments(
     ).subscribe((response: any) => {
@@ -50,6 +51,96 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  filter(area, houseType, price, parking, floor, lift, facing, gated) {
+    console.log(area);
+    this.filterArray = [];
+    var array = [];
+    this.nextDisable = false;
+    this.pageNumber = 0;
+    
+    if (area != '') {
+      if (this.filterArray.length != 0) {
+        this.filterArray = this.filterArray.filter(a => a.Area == area);
+      } else {
+        this.filterArray = this.properties.filter(a => a.Area == area);
+      }
+    }
+
+    if (houseType != '') {
+      if (this.filterArray.length != 0) {
+        this.filterArray = this.filterArray.filter(a => a.House_Type == houseType);
+        console.log(this.filterArray);
+        
+      } else {
+        this.filterArray = this.properties.filter(a => a.House_Type == houseType);
+      }
+    }
+
+    if (price != '') {
+      var priceRange = price.split("-");
+      if (this.filterArray.length != 0) {
+        this.filterArray = this.filterArray.filter(a => a.Price_in_Lacs > priceRange[0] && a.Price_in_Lacs < priceRange[1]);
+      } else {
+        this.filterArray = this.properties.filter(a => a.Price_in_Lacs > priceRange[0] && a.Price_in_Lacs < priceRange[1]);
+      }
+    }
+    
+    if (parking != '') {
+      if (this.filterArray.length != 0) {
+        this.filterArray = this.filterArray.filter(a => a.Parking == parking);
+      } else {
+        this.filterArray = this.properties.filter(a => a.Parking == parking);
+      }
+    }
+    
+    if (floor != '') {
+      if (floor == 11) {
+        if (this.filterArray.length != 0) {
+          this.filterArray = this.filterArray.filter(a => a.Floor == floor);
+        } else {
+          this.filterArray = this.properties.filter(a => a.Floor > floor);
+        }
+      } else {
+        if (this.filterArray.length != 0) {
+          this.filterArray = this.filterArray.filter(a => a.Floor == floor);
+        } else {
+          this.filterArray = this.properties.filter(a => a.Floor == floor);
+        }
+      }
+    }
+    
+
+    if (lift != '') {
+      if (this.filterArray.length != 0) {
+        this.filterArray = this.filterArray.filter(a => a.Lift == lift);
+      } else {
+        this.filterArray = this.properties.filter(a => a.Lift == lift);
+      }
+    }
+    
+    if (facing != '') {
+      if (this.filterArray.length != 0) {
+        this.filterArray = this.filterArray.filter(a => a.Facing == facing);
+      } else {
+        this.filterArray = this.properties.filter(a => a.Facing == facing);
+      }
+    }
+    
+    if (gated != '') {
+      if (this.filterArray.length != 0) {
+        this.filterArray = this.filterArray.filter(a => a.Gated_Security == gated);
+      } else {
+        this.filterArray = this.properties.filter(a => a.Gated_Security == gated);
+      }
+    }
+
+    this.filterProperties = this.filterArray.slice(this.pageNumber * 9, this.pageNumber * 9 + 9);
+    console.log(this.filterArray);
+    
+
+  }
+  
+  
   findByArea(area) {
     console.log(area);
     this.filterArray = [];
@@ -62,7 +153,11 @@ export class HomeComponent implements OnInit {
     this.lift = '';
     this.facing = '';
     this.gated = '';
+    this.nextDisable = false;
+    this.pageNumber = 1;
+    
     if (this.filterArray.length != 0) {
+      this.filterArray = this.filterArray.filter(a => a.Area == area);
       this.filterProperties = this.filterArray.filter(a => a.Area == area).slice(1 * 9, 1 * 9 + 9);
     } else {
       this.filterArray = this.properties.filter(a => a.Area == area);
@@ -71,6 +166,8 @@ export class HomeComponent implements OnInit {
   }
 
   findByHouseType(houseType) {
+    this.nextDisable = false;
+    this.pageNumber = 1;
     if (this.filterArray.length != 0) {
       console.log(houseType, 'if');
       this.filterArray = this.filterArray.filter(a => a.House_Type == houseType);
@@ -84,6 +181,8 @@ export class HomeComponent implements OnInit {
 
   findByPrice(price) {
     console.log(price);
+    this.nextDisable = false;
+    this.pageNumber = 1;
     var priceRange = price.split("-");
     if (this.filterArray.length != 0) {
       this.filterArray = this.filterArray.filter(a => a.Price_in_Lacs > priceRange[0] && a.Price_in_Lacs < priceRange[1]);
@@ -95,6 +194,8 @@ export class HomeComponent implements OnInit {
   }
 
   findByBedroom(bedroom) {
+    this.nextDisable = false;
+    this.pageNumber = 1;
     if (this.filterArray.length != 0) {
       this.filterArray = this.filterArray.filter(a => a.Bedroom == bedroom);
       this.filterProperties = this.filterArray.filter(a => a.Bedroom == bedroom).slice(1 * 9, 1 * 9 + 9);
@@ -105,6 +206,8 @@ export class HomeComponent implements OnInit {
   }
 
   findByBalcony(balcony) {
+    this.nextDisable = false;
+    this.pageNumber = 1;
     if (this.filterArray.length != 0) {
       this.filterArray = this.filterArray.filter(a => a.Balcony == balcony);
       this.filterProperties = this.filterArray.filter(a => a.Balcony == balcony).slice(1 * 9, 1 * 9 + 9);
@@ -115,6 +218,8 @@ export class HomeComponent implements OnInit {
   }
 
   findByParking(parking) {
+    this.nextDisable = false;
+    this.pageNumber = 1;
     if (this.filterArray.length != 0) {
       this.filterArray = this.filterArray.filter(a => a.Parking == parking);
       this.filterProperties = this.filterArray.filter(a => a.Parking == parking).slice(1 * 9, 1 * 9 + 9);
@@ -125,7 +230,8 @@ export class HomeComponent implements OnInit {
   }
 
   findByFloor(floor) {
-
+    this.nextDisable = false;
+    this.pageNumber = 1;
     if (floor == 11) {
       if (this.filterArray.length != 0) {
         this.filterArray = this.filterArray.filter(a => a.Floor == floor);
@@ -147,6 +253,8 @@ export class HomeComponent implements OnInit {
 
 
   findByLift(lift) {
+    this.nextDisable = false;
+    this.pageNumber = 1;
     if (this.filterArray.length != 0) {
       this.filterArray = this.filterArray.filter(a => a.Lift == lift);
       this.filterProperties = this.filterArray.filter(a => a.Lift == lift).slice(1 * 9, 1 * 9 + 9);
@@ -157,6 +265,8 @@ export class HomeComponent implements OnInit {
   }
 
   findByFacing(facing) {
+    this.nextDisable = false;
+    this.pageNumber = 1;
     if (this.filterArray.length != 0) {
       this.filterArray = this.filterArray.filter(a => a.Facing == facing);
       this.filterProperties = this.filterArray.filter(a => a.Facing == facing).slice(1 * 9, 1 * 9 + 9);
@@ -167,6 +277,8 @@ export class HomeComponent implements OnInit {
   }
 
   findByGated(gated) {
+    this.nextDisable = false;
+    this.pageNumber = 1;
     if (this.filterArray.length != 0) {
       this.filterArray = this.filterArray.filter(a => a.Gated_Security == gated);
       this.filterProperties = this.filterArray.filter(a => a.Gated_Security == gated).slice(1 * 9, 1 * 9 + 9);
@@ -180,8 +292,15 @@ export class HomeComponent implements OnInit {
     this.pageNumber = this.pageNumber + 1;
     if (this.filterArray.length != 0) {
       this.filterProperties = this.filterArray.slice(this.pageNumber * 9, this.pageNumber * 9 + 9);
+      if (this.filterArray[this.filterArray.length - 1].index == this.filterProperties[this.filterProperties.length - 1].index) {
+        this.nextDisable = true;
+      }
+      
     } else {
       this.filterProperties = this.properties.slice(this.pageNumber * 9, this.pageNumber * 9 + 9);
+      if (this.properties[this.properties.length - 1].index == this.filterProperties[this.filterProperties.length - 1].index) {
+        this.nextDisable = true;
+      }
     }
   }
 
@@ -206,7 +325,7 @@ export class HomeComponent implements OnInit {
     this.facing = '';
     this.gated = '';
     this.filterArray = [];
-    this.filterProperties = this.properties.slice(1 * 9, 1 * 9 + 9);
+    this.filterProperties = this.properties.slice(this.pageNumber * 9, this.pageNumber * 9 + 9);
   }
 
   details(item) {

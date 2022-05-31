@@ -86,10 +86,8 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label for="exampleDropdownFormEmail1">Bedroom:</label>
-                      <select class="form-control" [(ngModel)]="deatils.Bedroom">
-                        <option value="">Select</option>
-                        <option *ngFor="let item of bedroom" value="{{item.value}}">{{item.name}}</option>
-                      </select>
+                      <input class="form-control" [(ngModel)]="deatils.Bedroom" placeholder="Enter Bedroom"/>
+                      
                     </div>
                   </div>
                 </div>
@@ -107,19 +105,13 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label for="exampleDropdownFormEmail1">Bathroom:</label>
-                      <select class="form-control" [(ngModel)]="deatils.Bathroom">
-                        <option value="">Select</option>
-                        <option *ngFor="let item of bathroom" value="{{item.value}}">{{item.name}}</option>
-                      </select>
+                      <input class="form-control" [(ngModel)]="deatils.Bathroom" placeholder="Enter Bathroom"/>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
                       <label for="exampleDropdownFormEmail1">Balcony:</label>
-                      <select class="form-control" [(ngModel)]="deatils.Balcony">
-                        <option value="">Select</option>
-                        <option *ngFor="let item of balcony" value="{{item.value}}">{{item.name}}</option>
-                      </select>
+                      <input class="form-control" [(ngModel)]="deatils.Balcony" placeholder="Enter Balcony"/>
                     </div>
                   </div>
                   <div class="col-md-3">
@@ -277,7 +269,7 @@
       <div class="col-md-4">
         <div class="card">
           <img class="card-img-top"
-            src="https://www.riddhibuilders.in/images/flat/flats-for-sale-in-narsing-hyderabad.jpg"
+            src="../../../assets/img/home2.jpg"
             alt="Card image cap">
         </div>
       </div>

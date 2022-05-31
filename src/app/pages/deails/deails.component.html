@@ -6,7 +6,7 @@
       <div class="col-md-4">
         <div class="card">
           <img class="card-img-top"
-            src="https://www.riddhibuilders.in/images/flat/flats-for-sale-in-narsing-hyderabad.jpg"
+            src="../../../assets/img/home2.jpg"
             alt="Card image cap">
         </div>
       </div>
@@ -73,10 +73,8 @@
                     <span class="text-muted">Bedroom</span>
                     <br/> 
                     <b> 
-                      <span *ngIf="deatils.Bedroom == 1">1 Bedroom</span>
-                      <span *ngIf="deatils.Bedroom == 2">2 Bedroom</span>
-                      <span *ngIf="deatils.Bedroom == 3">3 Bedroom</span>
-                      <span *ngIf="deatils.Bedroom == 4">4 Bedroom</span></b>
+                      <span >{{deatils.Bedroom}} Bedroom</span>
+                    </b>
                   </div>
                 </div>
                 <br>
@@ -94,28 +92,14 @@
                     <span class="text-muted">Bathroom</span>
                     <br/> 
                     <b> 
-                      <span *ngIf="deatils.Bathroom == 1">1 Bathroom</span>
-                      <span *ngIf="deatils.Bathroom == 2">2 Bathroom</span>
-                      <span *ngIf="deatils.Bathroom == 3">3 Bathroom</span>
-                      <span *ngIf="deatils.Bathroom == 4">4 Bathroom</span>
-                      <span *ngIf="deatils.Bathroom == 5">5 Bathroom</span>
-                      <span *ngIf="deatils.Bathroom == 6">6 Bathroom</span>
-                      <span *ngIf="deatils.Bathroom == 7">7 Bathroom</span>
-                      <span *ngIf="deatils.Bathroom == 8">8 Bathroom</span>
+                      <span>{{deatils.Bathroom}} Bathroom</span>
                     </b>
                   </div>
                   <div class="col-md-3">
                     <span class="text-muted">Balcony</span>
                     <br/> 
                     <b> 
-                      <span *ngIf="deatils.Balcony == 0">None</span>
-                      <span *ngIf="deatils.Balcony == 1">1 Balcony</span>
-                      <span *ngIf="deatils.Balcony == 2">2 Balcony</span>
-                      <span *ngIf="deatils.Balcony == 3">3 Balcony</span>
-                      <span *ngIf="deatils.Balcony == 4">4 Balcony</span>
-                      <span *ngIf="deatils.Balcony == 5">5 Balcony</span>
-                      <span *ngIf="deatils.Balcony == 6">6 Balcony</span>
-                      <span *ngIf="deatils.Balcony == 7">7 Balcony</span>
+                      <span>{{deatils.Balcony}} Balcony</span>
                     </b>
                   </div>
                   <div class="col-md-3">
